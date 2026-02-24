@@ -1,7 +1,7 @@
 :root {
   /* Color palette (5) */
   --navy: #0b1f33;
-  --teal: #0ea5a4;
+  --teal: #00615f;
   --aqua: #d7f4f2;
   --sand: #f4efe6;
   --white: #ffffff;
@@ -405,4 +405,5 @@ a:focus-visible {
   padding-top: var(--space-2);
   font-size: var(--text-sm);
   opacity: 0.9;
+
 }
