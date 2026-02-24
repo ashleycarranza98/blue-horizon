@@ -1,0 +1,408 @@
+:root {
+  /* Color palette (5) */
+  --navy: #0b1f33;
+  --teal: #0ea5a4;
+  --aqua: #d7f4f2;
+  --sand: #f4efe6;
+  --white: #ffffff;
+
+  /* Typography (2 families) */
+  --font-body: "Inter", system-ui, Arial, sans-serif;
+  --font-headings: "Poppins", system-ui, Arial, sans-serif;
+
+  /* Type scale */
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.5rem;
+
+  /* Spacing scale (use 8px rhythm) */
+  --space-1: 0.5rem;  /* 8px */
+  --space-2: 1rem;    /* 16px */
+  --space-3: 1.5rem;  /* 24px */
+  --space-4: 2rem;    /* 32px */
+  --space-5: 3rem;    /* 48px */
+
+  /* Layouts & visuals */
+  --max-width: 70rem;
+  --radius: 1rem;
+  --shadow: 0 10px 30px rgba(11, 31, 51, 0.12);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box; /* box model control */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--navy);
+  background: var(--white);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-headings);
+  line-height: 1.2;
+  margin: 0 0 var(--space-2);
+}
+
+h1 { font-size: var(--text-3xl); }
+h2 { font-size: var(--text-2xl); }
+h3 { font-size: var(--text-xl); }
+
+p {
+  margin: 0 0 var(--space-2);
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 3px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--teal);
+  color: var(--white);
+  padding: var(--space-2);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Layout, have consistent containers and section spacing */
+
+.container {
+  width: min(100% - (var(--space-4) * 2), var(--max-width));
+  margin-inline: auto;
+}
+
+.section {
+  padding: var(--space-5) 0;
+}
+
+.section--tint {
+  background: var(--sand);
+}
+
+/* Intro sections (use on each page) */
+.intro img {
+  margin-top: var(--space-3);
+}
+
+.lead {
+  font-size: var(--text-lg);
+  max-width: 55rem;
+}
+
+/* Reusable button row (use on home, about, contact) */
+.intro-actions {
+  display: flex;      /* Flexbox */
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-top: var(--space-3);
+}
+
+/*Nav (add flexbox), Consistent nav, current page indicator */
+
+.site-header {
+  background: var(--white);
+  border-bottom: 1px solid rgba(11, 31, 51, 0.12);
+}
+
+.site-nav {
+  display: flex;               
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) 0;
+  gap: var(--space-3);
+}
+
+.logo {
+  font-family: var(--font-headings);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;               
+  gap: var(--space-3);
+  padding: 0;
+  margin: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.75rem;
+}
+
+.nav-link:hover {
+  background: rgba(14, 165, 164, 0.12);
+}
+
+/* current page */
+.nav-link-current {
+  background: var(--aqua);
+  text-decoration: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.75rem;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--teal);
+  color: var(--white);
+  padding: 0.75rem 1.1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn:hover {
+  filter: brightness(0.95);
+}
+
+.btn--secondary {
+  background: var(--navy);
+}
+
+.text-link {
+  font-weight: 600;
+}
+
+/* Cards & Flex rows (home/about/programs/contact) */
+
+.card-row {
+  display: flex;               
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 1 16rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  box-shadow: var(--shadow);
+}
+
+.card p {
+  margin-bottom: var(--space-2);
+}
+
+.stats-row {
+  display: flex;               
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.stat {
+  flex: 1 1 12rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  box-shadow: var(--shadow);
+}
+
+.stat-number {
+  font-family: var(--font-headings);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.stat-label {
+  margin: 0;
+  opacity: 0.85;
+}
+
+/* About page extras, Values list, Timeline (Flexbox cards), Team role styling */
+
+.values-list {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.values-list li {
+  margin-bottom: var(--space-1);
+}
+
+/* Use timeline as a Flexbox set of cards */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;               
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.timeline li {
+  flex: 1 1 16rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  box-shadow: var(--shadow);
+}
+
+.role {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  opacity: 0.85;
+  margin-top: -0.5rem;
+}
+
+/* 9) Program page extras, Mini headings, lists inside cards, Events (Flexbox cards) */
+
+.mini-heading {
+  font-family: var(--font-headings);
+  font-size: var(--text-sm);
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-1);
+}
+
+.mini-list {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.mini-list li {
+  margin-bottom: var(--space-1);
+}
+
+.events {
+  display: flex;               
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin: var(--space-3) 0;
+}
+
+.event {
+  flex: 1 1 18rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  box-shadow: var(--shadow);
+}
+
+.event-meta {
+  font-size: var(--text-sm);
+  opacity: 0.9;
+}
+
+/* CONTACT PAGE EXTRAS, Small helper text, Volunteer steps (Flexbox cards), FAQ (Flexbox cards) */
+
+.small {
+  font-size: var(--text-sm);
+  opacity: 0.85;
+}
+
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-3) 0 0;
+  display: flex;               
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.steps li {
+  flex: 1 1 18rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  box-shadow: var(--shadow);
+}
+
+.steps h3 {
+  margin-bottom: var(--space-1);
+}
+
+.faq {
+  display: flex;               
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-top: var(--space-3);
+}
+
+.faq-item {
+  flex: 1 1 18rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  box-shadow: var(--shadow);
+}
+
+/*  FOOTER (Flexbox columns) */
+
+.site-footer {
+  background: var(--navy);
+  color: var(--white);
+  padding: var(--space-5) 0 var(--space-3);
+}
+
+.footer-inner {
+  display: flex;               
+  gap: var(--space-5);
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.footer-title {
+  font-family: var(--font-headings);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.footer-text {
+  opacity: 0.9;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: var(--space-1);
+}
+
+.footer-links a {
+  color: var(--white);
+  opacity: 0.9;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  margin-top: var(--space-4);
+  padding-top: var(--space-2);
+  font-size: var(--text-sm);
+  opacity: 0.9;
+}
